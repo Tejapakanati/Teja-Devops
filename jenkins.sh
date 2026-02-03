@@ -25,6 +25,8 @@ df -h /tmp
 sudo rm -rf /tmp/*
 df -h /tmp
 
+// jenkins default  folder//
+cd /var/lib/jenkins
 
 
 
