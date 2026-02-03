@@ -12,4 +12,19 @@ sudo systemctl daemon-reload
 sudo systemctl restart jenkins
 sudo systemctl status jenkins
 
+//if jenkins goes offline withe gets error withe spaec //
+
+sudo fallocate -l 2G /swapfile  // 🔹 Create 2GB swap file
+sudo chmod 600 /swapfile  // sudo chmod 600 /swapfile
+sudo mkswap /swapfile //🔹 Enable swap
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab  // 🔹 Make swap permanent (VERY IMPORTANT)
+
+// clean disak space //
+df -h /tmp
+sudo rm -rf /tmp/*
+df -h /tmp
+
+
+
 
