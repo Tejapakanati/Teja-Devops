@@ -6,6 +6,13 @@ sudo dnf install jenkins -y
 systemctl restart jenkins
 sudo dnf install git -y
 
+
+//maven installation //
+sudo dnf update -y
+sudo dnf install maven -y
+
+
+
 //if incase problme with start jenkins //
 
 sudo systemctl daemon-reload
