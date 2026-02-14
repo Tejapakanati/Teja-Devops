@@ -6,6 +6,10 @@ sudo dnf install jenkins -y
 systemctl restart jenkins
 sudo dnf install git -y
 
+// error //
+sudo mount -o remount,size=2G /tmp
+df -h /tmp
+
 
 //maven installation //
 sudo dnf update -y
