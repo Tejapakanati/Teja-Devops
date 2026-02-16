@@ -23,6 +23,12 @@ sudo systemctl daemon-reload
 sudo systemctl restart jenkins
 sudo systemctl status jenkins
 
+
+//Nexus Setup//
+
+wget https://download.sonatype.com/nexus/3/nexus-3.63.0-01-unix.tar.gz
+tar -xvf nexus-3.63.0-01-unix.tar.gz
+
 //if jenkins goes offline withe gets error withe spaec //
 
 sudo fallocate -l 2G /swapfile  // 🔹 Create 2GB swap file
