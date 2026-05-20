@@ -25,9 +25,42 @@ sudo systemctl status jenkins
 
 
 //Nexus Setup//
-
+sudo yum update -y
+sudo yum install java-1.8.0-openjdk -y
+sudo adduser nexus
+cd /opt
 wget https://download.sonatype.com/nexus/3/nexus-3.63.0-01-unix.tar.gz
 tar -xvf nexus-3.63.0-01-unix.tar.gz
+sudo mv nexus-3.63.0-01.* nexus
+sudo chown -R nexus:nexus /opt/nexus
+sudo chown -R nexus:nexus /opt/sonatype-work
+vim /opt/nexus/bin/nexus.rc - run_as_user="nexus"
+vim /etc/systemd/system/nexus.service
+""""
+[Unit]
+Description=Nexus Repository Manager
+After=network.target
+
+[Service]
+Type=forking
+LimitNOFILE=65536
+User=nexus
+Group=nexus
+
+ExecStart=/opt/nexus/bin/nexus start
+ExecStop=/opt/nexus/bin/nexus stop
+Restart=on-abort
+
+TimeoutSec=600
+
+[Install]
+WantedBy=multi-user.target
+""""
+sudo systemctl daemon-reload
+sudo systemctl enable nexus
+sudo systemctl start nexus
+sudo systemctl status nexus
+//nexus setup end//
 
 //if jenkins goes offline withe gets error withe spaec //
 
