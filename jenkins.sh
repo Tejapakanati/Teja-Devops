@@ -1,10 +1,14 @@
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
-    https://pkg.jenkins.io/rpm-stable/jenkins.repo
+https://pkg.jenkins.io/rpm-stable/jenkins.repo
 sudo yum upgrade
-sudo dnf install java-17-amazon-corretto -y
+sudo dnf install java-21-amazon-corretto -y
 sudo dnf install jenkins -y
 systemctl restart jenkins
 sudo dnf install git -y
+
+sudo systemctl daemon-reload
+sudo systemctl restart jenkins
+sudo systemctl status jenkins
 
 // error //
 sudo mount -o remount,size=2G /tmp
@@ -15,13 +19,10 @@ df -h /tmp
 sudo dnf update -y
 sudo dnf install maven -y
 
-
-
-//if incase problme with start jenkins //
-
-sudo systemctl daemon-reload
-sudo systemctl restart jenkins
-sudo systemctl status jenkins
+//install tomcat//
+https://dlcdn.apache.org/  -->tomcat/ --> tomcat-9/ --> v9.0.117/ --> bin --> apache-tomcat-9.0.117.tar.gz (copy link address)
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.117/bin/apache-tomcat-9.0.117.tar.gz
+sudo dnf install java-11-amazon-corretto -y
 
 
 //Nexus Setup//
@@ -30,7 +31,7 @@ sudo yum install java-1.8.0-openjdk -y
 sudo adduser nexus
 cd /opt
 wget https://download.sonatype.com/nexus/3/nexus-3.63.0-01-unix.tar.gz
-tar -xvf nexus-3.63.0-01-unix.tar.gz
+tar -zxvf nexus-3.63.0-01-unix.tar.gz
 sudo mv nexus-3.63.0-01.* nexus
 sudo chown -R nexus:nexus /opt/nexus
 sudo chown -R nexus:nexus /opt/sonatype-work
@@ -77,6 +78,8 @@ df -h /tmp
 
 // jenkins default  folder//
 cd /var/lib/jenkins
+
+
 
 
 
