@@ -80,6 +80,9 @@ df -h /tmp
 // jenkins default  folder//
 cd /var/lib/jenkins
 
+//to edit port number of jenkins//
+cd /usr/lib/systemd/system/jenkins.service
+
 
 
 
