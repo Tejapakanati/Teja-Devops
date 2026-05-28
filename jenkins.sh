@@ -83,6 +83,30 @@ cd /var/lib/jenkins
 //to edit port number of jenkins//
 cd /usr/lib/systemd/system/jenkins.service
 
+// ANSIBLE SET UP //
+
+<-- master
+sudo dnf update -y
+sudo dnf install ansible -y
+sudo dnf install python3 python3-pip -y
+useradd ansible
+passwd ansible - (create password here)
+systemctl restart sshd
+su - ansible
+ssh-keygen
+ssh-copy-id ansible@privateipaddress
+ssh ansible@privateipaddress
+                  master -->
+<-- slave 
+useradd ansible
+passwd ansible - (create password here)
+systemctl restart sshd
+                  slave -->
+
+ansible all --list-hosts --> it will show all hosts if use [0] it will show only index host
+
+
+
 
 
 
