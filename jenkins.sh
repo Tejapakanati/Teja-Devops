@@ -108,7 +108,7 @@ ansible all --list-hosts --> it will show all hosts if use [0] it will show only
 // sonarqube //
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.5.0.122743.zip
 unzip sonarqube-26.5.0.122743
-sudo dnf install java-11-amazon-corretto -y
+sudo dnf install java-21-amazon-corretto -y
 useradd sonar
 chown sonar:sonar sonarqube-26.5.0.122743 -R
 chmod 777 sonarqube-26.5.0.122743 -R
