@@ -33,7 +33,7 @@ sudo adduser nexus
 cd /opt
 wget https://download.sonatype.com/nexus/3/nexus-3.63.0-01-unix.tar.gz
 tar -zxvf nexus-3.63.0-01-unix.tar.gz
-sudo mv nexus-3.63.0-01.* nexus
+sudo mv nexus-3.63.0-01 nexus
 sudo chown -R nexus:nexus /opt/nexus
 sudo chown -R nexus:nexus /opt/sonatype-work
 vim /opt/nexus/bin/nexus.rc - run_as_user="nexus"
@@ -104,6 +104,19 @@ systemctl restart sshd
                   slave -->
 
 ansible all --list-hosts --> it will show all hosts if use [0] it will show only index host
+
+// sonarqube //
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-26.5.0.122743.zip
+unzip sonarqube-26.5.0.122743
+sudo dnf install java-11-amazon-corretto -y
+useradd sonar
+chown sonar:sonar sonarqube-26.5.0.122743 -R
+chmod 777 sonarqube-26.5.0.122743 -R
+su - sonar
+cd /opt
+cd sonar-bin/linux
+./sonart.sh start
+./sonar.sh stop
 
 
 
