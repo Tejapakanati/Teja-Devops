@@ -91,6 +91,8 @@ sudo dnf install ansible -y
 sudo dnf install python3 python3-pip -y
 useradd ansible
 passwd ansible - (create password here)
+visudo
+vi /etc/ssh/sshd_config
 systemctl restart sshd
 su - ansible
 ssh-keygen
