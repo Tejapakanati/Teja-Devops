@@ -17,6 +17,13 @@ sudo systemctl status jenkins
 sudo mount -o remount,size=2G /tmp
 df -h /tmp
 
+//node error//
+
+Free Disk Space Threshold           : 500 MiB
+Free Disk Space Warning Threshold   : 1 GiB
+
+Free Temp Space Threshold           : 100 MiB
+Free Temp Space Warning Threshold   : 200 MiB
 
 //maven installation //
 sudo dnf update -y
