@@ -4,6 +4,8 @@ sudo yum upgrade
 sudo dnf install java-21-amazon-corretto -y
 sudo dnf install jenkins -y
 sudo yum update -y && sudo yum install -y git java-1.8.0-openjdk java-1.8.0-openjdk-devel maven
+sudo mount -o remount,size=2G /tmp
+df -h /tmp
 systemctl restart jenkins
 
 
