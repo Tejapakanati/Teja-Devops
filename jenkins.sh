@@ -100,7 +100,7 @@ sudo dnf install ansible -y
 sudo dnf install python3 python3-pip -y
 useradd ansible
 passwd ansible - (create password here)
-visudo
+visudo (100 line copy root and paste (creplace roor with ansible and NOPASSWD: ALL))
 vi /etc/ssh/sshd_config
 systemctl restart sshd
 su - ansible
